@@ -1,0 +1,40 @@
+<p><h1>Draft page for cloud run-time efficiency measurement</h1>
+As a first step of measuring the preparation stages for cloud environments, we have collected timestamp between the processes of RAIN and the processes are:<br><br>
+<li> Eucalyptus</li>
+<ol>
+	<li>Image preparation - time between available image and Rain client launched.</li>
+	<li>Launching images - time taken for launching VM instances and waiting them to be running.</li>
+	<li>SSH accessibility - time for allocating public IP/private IP addess(es). The IP address(es) should be accessible via SSH and this measured time-value indicates between requests and availability of the address(es).</li>
+	<li>Total walltime - entire processing time</li>
+</ol>
+<li>OpenStack</li>
+<ol>
+	<li>IP address association - time for associatin VM instance(s) and ip address(es)</li>
+	<li>Mounting/configuring directories - Configuring ssh in VM and mounting home directory (using sshfs) in /tmp</li>
+	<li>Running jobs - ? (/tmp/N/u/jdiaz/exit.sh) </li>
+	<li>Rest of them are same as Eucalyptus</li>
+</ol>
+</p>
+<li>Spiderweb chart</li>
+* Logarithm is applied to display time-value.<br>
+* Legend shows like this 'client' + '_' + 'platform' + '-' instance + 'number of vm requested' + '_' + 'sequence number of request'<br>
+e.g. rain_euca-1_1 - first request(try) of Rain client for Eucalyptus with 1 VM instance.<br>
+* In case the graph doesn't show up, please refresh(F5) the browser. Highchart sometimes doesn't load html element correctly.
+</p>
+<p><iframe src="index.php?filename=rain_euca_1" width=750 height=450 frameborder=0></iframe></p>
+<p>Figure 1. Comparison of processing time between Rain requests for Eucalyptus (1 VM requested)</p>
+<p><iframe src="index.php?filename=rain_euca_1_to_16" width=750 height=450 frameborder=0></iframe></p>
+<p>Figure 2. Comparison of processing time between 1, 2, 4, 8, and 16 of simultaneous VMs requested via Rain for Eucalyptus</p>
+<p><iframe src="index.php?filename=rain_openstack_1_to_8" width=750 height=450 frameborder=0></iframe></p>
+<p>Figure 3. Comparison of processing time between 1, 2, 4, and 8 of simultaneous VMs requested via Rain for OpenStack</p>
+<p><iframe src="index.php?filename=rain_hadoop" width=750 height=450 frameborder=0></iframe></p>
+<p>Figure 4. Processing time of Rain for Hadoop<br>
+* Hadoop cluster indicates time taken to setup and configure Hadoop environments in the home directory for example, fg-hadoop.job_setup, job_genconf, and job_start are performed in order.</p>
+TBD
+<p>Figure 5. Comparison for HPC</p>
+TBD
+<p>Figure 6. Comparison for XCAT</p>
+TBD
+<p>Figure 7. Comparison between Eucalyptus, OpenStack, HPC, and XCAT</p>
+TBD
+<p>Figure 8. Comparison between RAIN and BioInformatics</p>
